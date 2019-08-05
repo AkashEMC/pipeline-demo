@@ -2,6 +2,9 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
+      env:
+        http_proxy: http://172.18.192.4:8080
+        https_proxy: http://172.18.192.4:8080
       image: golang:1.11
       shellScript: |-
         mkdir -p /go/src/github.com/rancher1
@@ -12,6 +15,9 @@ stages:
 - name: Publish
   steps:
   - publishImageConfig:
+      env:
+        http_proxy: http://172.18.192.4:8080
+        https_proxy: http://172.18.192.4:8080
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
