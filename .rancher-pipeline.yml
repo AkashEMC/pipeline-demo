@@ -16,7 +16,7 @@ stages:
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
-      buildContext: '"--build-arg http_proxy=http://172.18.192.4:8080"'
+      buildContext: --build-arg http_proxy='http://172.18.192.4:8080'
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
 - name: Deploy
   steps:
