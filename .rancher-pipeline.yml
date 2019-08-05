@@ -16,7 +16,7 @@ stages:
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
-      buildContext: . --build-arg="http://172.18.192.4:8080" --build-arg="http://172.18.192.4:8080"
+      buildContext: .
       tag: example-helloserver:${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34056
 - name: Deploy
